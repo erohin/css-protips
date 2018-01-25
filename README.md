@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://rawgit.com/AllThingsSmitty/css-protips/master/media/logo.svg" alt="light bulb icon">
+  <img src="https://rawgit.com/AllThingsSmitty/css-protips/master/media/logo.svg" width="200" alt="light bulb icon">
 </p>
 
 # CSS Protips [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
@@ -44,7 +44,7 @@ A collection of tips to help take your CSS skills pro.
 
 ### Use a CSS Reset
 
-CSS resets help enforce style consistency across different browsers with a clean slate for styling elements. You can use CSS reset library like [Normalize](http://necolas.github.io/normalize.css/), _et al._, or you can use a more simplified reset approach:
+CSS resets help enforce style consistency across different browsers with a clean slate for styling elements. You can use a CSS reset library like [Normalize](http://necolas.github.io/normalize.css/), _et al._, or you can use a more simplified reset approach:
 
 ```css
 * {
@@ -197,7 +197,7 @@ li:nth-child(-n+3) {
 Or, since you've already learned a little about [using `:not()`](#use-not-to-applyunapply-borders-on-navigation), try:
 
 ```css
-/* select items 1 through 3 and display them */
+/* select all items except the first 3 and display them */
 li:not(:nth-child(-n+3)) {
   display: none;
 }
@@ -225,7 +225,7 @@ SVG scales well for all resolution types and is supported in all browsers [back 
 **Note:** If you have SVG icon-only buttons for sighted users and the SVG fails to load, this will help maintain accessibility:
 
 ```css
-.no-svg .icon-only:after {
+.no-svg .icon-only::after {
   content: attr(aria-label);
 }
 ```
@@ -407,13 +407,13 @@ img {
 Now add pseudo-elements rules to display a user message and URL reference of the broken image:
 
 ```css
-img:before {
+img::before {
   content: "We're sorry, the image below is broken :(";
   display: block;
   margin-bottom: 10px;
 }
 
-img:after {
+img::after {
   content: "(url: " attr(src) ")";
   display: block;
   font-size: 12px;

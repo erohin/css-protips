@@ -4,7 +4,7 @@
 
 # CSS Protips [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
-Uma coleção de dicas para elevar suas habilidades de CSS.
+Uma coleção de dicas para aumentar suas habilidades no CSS.
 
 > Dê uma olhada em mais algumas [listas fantásticas](https://github.com/sindresorhus/awesome/) mantidas por [@sindresorhus](https://github.com/sindresorhus/).
 
@@ -43,7 +43,7 @@ Uma coleção de dicas para elevar suas habilidades de CSS.
 
 ### Use um Reset CSS
 
-Redefine CSS ajudar a impor a consistência de estilo em diferentes navegadores com uma ardósia limpa para elementos de estilo. Você pode usar a biblioteca de reset CSS como [Normalize](http://necolas.github.io/normalize.css/), et al, ou você pode usar uma abordagem de redefinição mais simplificada.:
+Resetar o CSS vai te ajudar a manter a consistência de estilo em diferentes navegadores com um ponto de partida limpo para elementos de estilo. Você pode usar a biblioteca de reset CSS como [Normalize](http://necolas.github.io/normalize.css/), ou se preferir, usar uma abordagem mais simplificada.:
 
 ```css
 * {
@@ -53,7 +53,7 @@ Redefine CSS ajudar a impor a consistência de estilo em diferentes navegadores 
 }
 ```
 
-Agora elementos serão despojados de margens e preenchimento, e `box-sizing` permite gerenciar layouts com o modelo de caixa CSS.
+Agora os elementos estarão sem margens, preenchimento e `box-sizing`. Te permitindo gerenciar o layout com o seu CSS.
 
 #### [Passeata](http://codepen.io/AllThingsSmitty/pen/kkrkLL)
 
@@ -64,7 +64,7 @@ Agora elementos serão despojados de margens e preenchimento, e `box-sizing` per
 
 ### Herde o `box-sizing`
 
-Faça que o `box-sizing` seja herdado do `html`:
+Faça com que o `box-sizing` seja herdado do `html`:
 
 ```css
 html {
@@ -109,7 +109,7 @@ Ao invés de colocar a borda…
 }
 ```
 
-Claro, você poderia usar `.nav li + li` ou ainda `.nav li:first-child ~ li`, mas usando `:not()` a intenção fica mais clara e o seletor CSS passa a definir a borda de uma maneira que nós humanos entenPasseatas mais claramente.
+Claro, você poderia usar `.nav li + li` ou ainda `.nav li:first-child ~ li`, mas usando `:not()` a intenção fica mais clara e o seletor CSS passa a definir a borda de uma maneira que nós humanos entendemos mais claramente.
 
 #### [Passeata](http://codepen.io/AllThingsSmitty/pen/LkymvO)
 
@@ -196,7 +196,7 @@ li:nth-child(-n+3) {
 Já que você aprendeu um pouquinho sobre como usar a _pseudo-class_ [using `:not()`](#use-not-to-applyunapply-borders-on-navigation), você pode tentar:
 
 ```css
-/* mostrar itens de 1 a 3 */
+/* selecione todos os itens, exceto o primeiro 3 e exiba-os */
 li:not(:nth-child(-n+3)) {
   display: none;
 }
@@ -224,7 +224,7 @@ A vantagem do SVG é que o ícone fica bom em qualquer resolução, além de ter
 **Aviso:** Se você tem botões feitos apenas com ícones SVG, a dica a seguir o ajudará a manter a acessibilidade:
 
 ```css
-.no-svg .icon-only:after {
+.no-svg .icon-only::after {
   content: attr(aria-label);
 }
 ```
@@ -406,13 +406,13 @@ img {
 Agora adicione regras com _pseudo-elements_ para mostrar uma mensagem e a URL da imagem quebrada:
 
 ```css
-img:before {
+img::before {
   content: "Desculpe, a imagem abaixo não pode ser carregada :(";
   display: block;
   margin-bottom: 10px;
 }
 
-img:after {
+img::after {
   content: "(url: " attr(src) ")";
   display: block;
   font-size: 12px;

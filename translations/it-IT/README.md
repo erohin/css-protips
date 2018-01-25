@@ -210,7 +210,7 @@ li:nth-child(-n+3) {
 Oppure, dato che hai già imparato un po' di cose circa l'[uso di `:not()`](#use-not-to-applyunapply-borders-on-navigation), prova:
 
 ```css
-/* seleziona gli elementi da 1 a 3 e li mostra */
+/* selezionare tutti gli elementi tranne i primi 3 e visualizzarli */
 li:not(:nth-child(-n+3)) {
   display: none;
 }
@@ -240,7 +240,7 @@ SVG scala molto bene a tutti i tipi di risoluzione ed è supportata in tutti i b
 **Nota bene:** se usi bottoni con esclusivamente grafica SVG e le icone SVG non vengono caricate, questo ti aiuterà a preservare l'accessibilità:
 
 ```css
-.no-svg .icon-only:after {
+.no-svg .icon-only::after {
   content: attr(aria-label);
 }
 ```
@@ -440,13 +440,13 @@ img {
 Ora aggiungi le regole per gli pseudo elementi al fine di mostrare un messaggio e un riferimento URL dell'immagine non scaricata:
 
 ```css
-img:before {
+img::before {
   content: "Siamo spiacenti, l'immagine non è stata scaricata. :(";
   display: block;
   margin-bottom: 10px;
 }
 
-img:after {
+img::after {
   content: "(url: " attr(src) ")";
   display: block;
   font-size: 12px;

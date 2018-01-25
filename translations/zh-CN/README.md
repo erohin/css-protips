@@ -199,7 +199,7 @@ li:nth-child(-n+3) {
 或许你已经掌握了[如何使用 `:not()`](#use-not-to-applyunapply-borders-on-navigation)这个技巧，试下这个：
 
 ```css
-/* 选择第 1 至第 3 个元素并显示出来 */
+/* 选择除前3个之外的所有项目，并显示它们 */
 li:not(:nth-child(-n+3)) {
   display: none;
 }
@@ -227,7 +227,7 @@ SVG 在所有分辨率下都可以良好缩放，并且支持所有 IE9 以后�
 **注意：** 针对仅有图标的按钮，如果 SVG 没有加载成功的话，以下样式对无障碍有所帮助：
 
 ```css
-.no-svg .icon-only:after {
+.no-svg .icon-only::after {
   content: attr(aria-label);
 }
 ```
@@ -409,13 +409,13 @@ img {
 以添加伪元素的法则来显示用户信息和URL的引用：
 
 ```css
-img:before {  
+img::before {  
   content: "We're sorry, the image below is broken :(";
   display: block;
   margin-bottom: 10px;
 }
 
-img:after {  
+img::after {  
   content: "(url: " attr(src) ")";
   display: block;
   font-size: 12px;

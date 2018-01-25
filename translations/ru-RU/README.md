@@ -198,7 +198,7 @@ li:nth-child(-n+3) {
 Или, так как вы уже немного познакомились [с `:not()`](#use-not-to-applyunapply-borders-on-navigation), попробуйте:
 
 ```css
-/* выбирает и отображает элементы с 1 по 3 */
+/* выберите все элементы, кроме первых 3, и покажите их */
 li:not(:nth-child(-n+3)) {
   display: none;
 }
@@ -226,7 +226,7 @@ SVG хорошо масштабируется для всех разрешени
 **Примечание:** Если у вас есть кнопки, содержащие только SVG пиктограммы, и SVG не удается загрузить, то это поможет сохранить доступность кнопки:
 
 ```css
-.no-svg .icon-only:after {
+.no-svg .icon-only::after {
   content: attr(aria-label);
 }
 ```
@@ -414,7 +414,7 @@ img:before {
   margin-bottom: 10px;
 }
 
-img:after {
+img::after {
   content: "(url: " attr(src) ")";
   display: block;
   font-size: 12px;
