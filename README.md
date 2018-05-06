@@ -21,6 +21,7 @@ A collection of tips to help take your CSS skills pro.
 
 1. [Use a CSS Reset](#use-a-css-reset)
 1. [Inherit `box-sizing`](#inherit-box-sizing)
+1. [Use `unset` Instead of Resetting All Properties](#use-unset-instead-of-resetting-all-properties)
 1. [Use `:not()` to Apply/Unapply Borders on Navigation](#use-not-to-applyunapply-borders-on-navigation)
 1. [Add `line-height` to `body`](#add-line-height-to-body)
 1. [Vertically-Center Anything](#vertically-center-anything)
@@ -82,6 +83,34 @@ This makes it easier to change `box-sizing` in plugins or other components that 
 <sup>[back to table of contents](#table-of-contents)</sup>
 
 
+### Use `unset` Instead of Resetting All Properties
+
+When resetting an element's properties, it's not necessary to reset each individual property:
+
+```css
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  padding: 0;
+}
+```
+
+You can specify all of an element's properties using the `all` shorthand. Setting the value to `unset` changes an element's properties to their initial values:
+
+```css
+button {
+  all: unset;
+}
+```
+
+**Note:** the `all` shorthand isn't supported in IE11 and is currently under consideration for support in Edge. `unset` isn't supported in IE11.
+
+<sup>[back to table of contents](#table-of-contents)</sup>
+
+
 ### Use `:not()` to Apply/Unapply Borders on Navigation
 
 Instead of putting on the border...
@@ -110,7 +139,7 @@ Instead of putting on the border...
 }
 ```
 
-Sure, you can use `.nav li + li` or even `.nav li:first-child ~ li`, but with `:not()` the intent is very clear and the CSS selector defines the border the way a human would describe it.
+Sure, you can use `.nav li + li`, but with `:not()` the intent is very clear and the CSS selector defines the border the way a human would describe it.
 
 #### [Demo](http://codepen.io/AllThingsSmitty/pen/LkymvO)
 
@@ -521,12 +550,16 @@ Current versions of Chrome, Firefox, Safari, Opera, Edge, and IE11.
 
 ## Translations
 
+* [简体中文](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/zh-CN)
+* [正體中文](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/zh-TW)
+* [Deutsche](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/de-DE)
 * [Español](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/es-ES)
 * [Français](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/fr-FR)
+* [ગુજરાતી](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/gu-IND)
 * [Italiano](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/it-IT)
 * [日本語](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/ja-JP)
+* [Polskie](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/pl-PL)
 * [Português do Brasil](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/pt-BR)
 * [Русский](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/ru-RU)
-* [简体中文](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/zh-CN)
 
 <sup>[back to table of contents](#table-of-contents)</sup>

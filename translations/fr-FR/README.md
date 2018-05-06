@@ -20,6 +20,7 @@ Une collection de conseils pour aider à prendre vos compétences CSS pro.
 
 1. [Utilisez un Reset CSS](#utilisez-un-reset-css)
 1. [Hériter `box-sizing`](#hériter-box-sizing)
+1. [Utilisez `unset` au lieu de Réinitialiser Toutes les Propriétés](#utilisez-unset-au-lieu-de-réinitialiser-toutes-les-propriétés)
 1. [Utiliser `:not()` postuler / unapply Borders Navigation](#utiliser-not-postuler--unapply-frontières-sur-la-navigation)
 1. [Ajouter `line-height` à `body`](#ajouter-line-height-à-body)
 1. [Verticalement-Center Tout](#verticalement-center-tout)
@@ -82,6 +83,34 @@ Cela rend plus facile de changer `box-sizing` dans les plugins ou autres composa
 <sup>[retour à la table des matières](#table-des-matières)</sup>
 
 
+### Utilisez `unset` au lieu de Réinitialiser Toutes les Propriétés
+
+Lors de la réinitialisation des propriétés d'un élément, il n'est pas nécessaire de réinitialiser chaque propriété individuelle:
+
+```css
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  padding: 0;
+}
+```
+
+Vous pouvez spécifier toutes les propriétés d'un élément en utilisant le raccourci `all`. Définir la valeur sur `unset` change les propriétés d'un élément à leurs valeurs initiales:
+
+```css
+button {
+  all: unset;
+}
+```
+
+**Remarque:** le raccourci `all` n'est pas supporté dans IE11 et est actuellement à l'étude pour le support dans Edge. `unset` n'est pas supporté dans IE11.
+
+<sup>[retour à la table des matières](#table-des-matières)</sup>
+
+
 ### Utiliser `:not()` postuler / unapply frontières sur la navigation
 
 Au lieu de mettre à la frontière...
@@ -110,7 +139,7 @@ Au lieu de mettre à la frontière...
 }
 ```
 
-Bien sûr, vous pouvez utiliser `.nav li + li` ou même `.nav li:first-child ~ li`, mais avec `:not()` l'intention est très claire et le sélecteur CSS définit la frontière comme un être humain serait le décrire.
+Bien sûr, vous pouvez utiliser `.nav li + li`, mais avec `:not()` l'intention est très claire et le sélecteur CSS définit la frontière comme un être humain serait le décrire.
 
 #### [Demo](http://codepen.io/AllThingsSmitty/pen/LkymvO)
 

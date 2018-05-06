@@ -20,6 +20,7 @@ Una collezione di dritte per aiutarti a migliorare le tue capacità con CSS.
 
 1. [Utilizzare un reset CSS](#use-a-css-reset)
 1. [Eredita il `box-sizing`](#inherit-box-sizing)
+1. [Usa `unset` invece di Reimposta tutte le proprietà](#use-unset-instead-of-resetting-all-properties)
 1. [Usa `:not()` per applicare/rimuovere i bordi su elementi di navigazione](#use-not-to-applyunapply-borders-on-navigation)
 1. [Aggiungi `line-height` al `body`](#add-line-height-to-body)
 1. [Centra verticalmente qualsiasi cosa](#vertically-center-anything)
@@ -85,6 +86,36 @@ In questo modo diventa più facile cambiare `box-sizing` in plugin o altri compo
 <sup>[torna al sommario](#sommario)</sup>
 
 
+<div id="use-unset-instead-of-resetting-all-properties"></div>
+
+### Usa `unset` invece di Reimposta tutte le proprietà
+
+Quando si ripristinano le proprietà di un elemento, non è necessario reimpostare ogni singola proprietà:
+
+```css
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  padding: 0;
+}
+```
+
+Puoi specificare tutte le proprietà di un elemento usando la stenografia `all`. L'impostazione del valore su `unset` modifica le proprietà di un elemento ai valori iniziali:
+
+```css
+button {
+  all: unset;
+}
+```
+
+**Nota:** la stenografia `all` non è supportata in IE11 ed è attualmente in considerazione per il supporto in Edge. `unset` non è supportato in IE11.
+
+<sup>[torna al sommario](#sommario)</sup>
+
+
 <div id="use-not-to-applyunapply-borders-on-navigation"></div>
 
 ### Usa `:not()` per applicare/rimuovere i bordi su elementi di navigazione
@@ -115,7 +146,7 @@ Invece di impostare il bordo...
 }
 ```
 
-Certo, puoi usare `.nav li + li` o anche `.nav li:first-child ~ li`, ma con `:not()` l'intento è molto chiaro e il selettore CSS definisce il bordo nel modo in cui un essere umano lo descriverebbe.
+Certo, puoi usare `.nav li + li`, ma con `:not()` l'intento è molto chiaro e il selettore CSS definisce il bordo nel modo in cui un essere umano lo descriverebbe.
 
 #### [Dimostrazione](http://codepen.io/AllThingsSmitty/pen/LkymvO)
 
